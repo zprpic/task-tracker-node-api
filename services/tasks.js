@@ -1,14 +1,7 @@
 const Task = require("../models/Task");
 
-const getAllTasks = async (req, res) => {
-  const tasks = await Task.find({});
-  res.status(200).json({ tasks });
-};
+const getAllTasks = async () => await Task.find({});
 
-const createTask = async (req, res) => {
-  const { name } = req.body;
-  await Task.create({ name });
-  res.status(200).json(`Task: ${name} has been created.`);
-};
+const createTask = async (task) => await Task.create(task);
 
 module.exports = { getAllTasks, createTask };
