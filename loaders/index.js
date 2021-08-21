@@ -8,6 +8,7 @@ const port = config.port;
 const connect = () => {
   connectDB(databaseURL);
 };
+
 const app = () => {
   express.listen(port, () => {
     console.log(`Server listening on port: ${port}`);

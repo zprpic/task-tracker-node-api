@@ -1,9 +1,9 @@
-const loaders = require("./loaders");
+const { app, connect } = require("./loaders");
 
 const startServer = async () => {
   try {
-    await loaders.connect();
-    loaders.app();
+    await connect();
+    app();
   } catch (error) {
     console.log(error);
   }
