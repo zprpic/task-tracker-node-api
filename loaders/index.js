@@ -1,9 +1,9 @@
+const express = require("./express");
 const config = require("./config");
 const connectDB = require("./connect");
-const express = require("express");
 
 module.exports = {
-  config,
   express,
+  config,
   connectDB,
 };
