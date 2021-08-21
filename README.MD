@@ -25,8 +25,8 @@
 const start = async () => { try { // DB Connection app.listen(port, console.log(Server listening on port ${port})); } catch (error) { console.log(error); } }; start();`
 5 Setup DB connection:
 
-    Create "db" Folder
-    Create file "connect.js" in "db" folder
+- Create "db" Folder
+- Create file "connect.js" in "db" folder
 
 `const mongoose = require("mongoose");
 
