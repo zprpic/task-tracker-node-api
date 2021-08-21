@@ -1,4 +1,4 @@
-const express = require("./express");
+const server = require("./express");
 const { databaseURL, port } = require("./config");
 const connectDB = require("./connect");
 
@@ -7,7 +7,7 @@ const connect = () => {
 };
 
 const app = () => {
-  express.listen(port, () => {
+  server.listen(port, () => {
     console.log(`Server listening on port: ${port}`);
   });
 };
