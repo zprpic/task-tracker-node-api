@@ -5,4 +5,10 @@ const getAllTasks = async (req, res) => {
   res.status(200).json({ tasks });
 };
 
-module.exports = { getAllTasks };
+const createTask = async (req, res) => {
+  const { name } = req.body;
+  await Task.create({ name });
+  res.status(200).json(`Task: ${name} has been created.`);
+};
+
+module.exports = { getAllTasks, createTask };
