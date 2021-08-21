@@ -1,9 +1,6 @@
 const express = require("./express");
-const config = require("./config");
+const { databaseURL, port } = require("./config");
 const connectDB = require("./connect");
-
-const databaseURL = config.databaseURL;
-const port = config.port;
 
 const connect = () => {
   connectDB(databaseURL);
