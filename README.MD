@@ -64,3 +64,9 @@ module.exports = connectDB;`
 ### 8.1 At least get the server running with improved folder structure and improved separation of concerns
 
 ### 8.2 Get the GET all tasks route working with improved folder structure and improved separation of concerns
+
+### 9 Finish adding all routes
+
+- GET single task route
+- PATCH/update route
+- DELETE route
