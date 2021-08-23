@@ -70,3 +70,5 @@ module.exports = connectDB;`
 - GET single task route
 - PATCH/update route
 - DELETE route
+
+### 10 Set up error handling
