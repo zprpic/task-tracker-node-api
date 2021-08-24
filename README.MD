@@ -72,3 +72,7 @@ module.exports = connectDB;`
 - DELETE route
 
 ### 10 Set up error handling
+
+- Error class
+- Middleware error function
+- Test error handling

@@ -9,15 +9,26 @@ const {
   updateTask,
 } = require("../../services/tasks");
 
+const routeHandler = require("../../middleware/route-handler");
+
+const customAPIError = require("../../errors/custom-error");
+
 router.get("/", async (req, res) => {
   const tasks = await getAllTasks();
   res.status(200).json({ tasks });
 });
-router.get("/:id", async (req, res) => {
-  const { id } = req.params;
-  const task = await getTask(id);
-  res.status(200).json({ task });
-});
+router.get(
+  "/:id",
+  routeHandler(async (req, res, next) => {
+    const { id } = req.params;
+    const task = await getTask(id);
+    if (task) {
+      return task;
+    } else {
+      next();
+    }
+  })
+);
 router.post("/", async (req, res) => {
   const task = await createTask(req.body);
   res.status(201).json({ task });
