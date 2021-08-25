@@ -2,9 +2,13 @@ const express = require("express");
 const server = express();
 
 const router = require("../api/routes/tasks");
-const customAPIError = require("../errors/custom-error");
+
+const errorHandler = require("../middleware/error-handler");
+const notFound = require("../middleware/not-found");
 
 server.use(express.json());
 server.use("/tasks", router);
-server.use(customAPIError);
+server.use("*", notFound); //order? wtF?
+server.use(errorHandler); //order? vice-versa doesnt work? why?
+
 module.exports = server;

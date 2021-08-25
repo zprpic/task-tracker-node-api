@@ -1,5 +1,6 @@
-const customAPIError = (message) => {
-  return res.json(message);
-};
-
-module.exports = customAPIError;
+class CustomAPIError extends Error {
+  constructor(message) {
+    super(message);
+  }
+}
+module.exports = CustomAPIError;

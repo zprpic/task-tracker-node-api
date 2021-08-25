@@ -1,14 +1,12 @@
 function routeHandler(handler) {
-  let responseStatus = 200;
   return async (req, res, next) => {
     try {
+      let responseStatus = 200;
       const routeResult = await handler(req, res);
-      return res.json(routeResult);
+      res.status(responseStatus).json(routeResult);
     } catch (error) {
-      responseStatus = 404;
       next(error);
     }
-    return res.status(responseStatus);
   };
 }
 

@@ -11,7 +11,7 @@ const {
 
 const routeHandler = require("../../middleware/route-handler");
 
-const customAPIError = require("../../errors/custom-error");
+const { NotFoundError, BadRequestError } = require("../../errors/not-found");
 
 router.get("/", async (req, res) => {
   const tasks = await getAllTasks();
@@ -22,27 +22,48 @@ router.get(
   routeHandler(async (req, res, next) => {
     const { id } = req.params;
     const task = await getTask(id);
-    if (task) {
-      return task;
+    if (!task) {
+      throw new NotFoundError();
     } else {
-      next();
+      return task;
     }
   })
 );
-router.post("/", async (req, res) => {
-  const task = await createTask(req.body);
-  res.status(201).json({ task });
-});
-router.patch("/:id", async (req, res) => {
-  const { id } = req.params;
-  const { name, isCompleted } = req.body;
-  const task = await updateTask(id, name, isCompleted);
-  res.status(200).json({ task });
-});
-router.delete("/:id", async (req, res) => {
-  const { id } = req.params;
-  const task = await deleteTask(id);
-  res.status(200).json({ task });
-});
+router.post(
+  "/",
+  routeHandler(async (req, res) => {
+    const task = await createTask(req.body);
+    if (!task) {
+      throw new BadRequestError();
+    } else {
+      return task;
+    }
+  })
+);
+router.patch(
+  "/:id",
+  routeHandler(async (req, res) => {
+    const { id } = req.params;
+    const { name, isCompleted } = req.body;
+    const task = await updateTask(id, name, isCompleted);
+    if (!task) {
+      throw new BadRequestError();
+    } else {
+      return task;
+    }
+  })
+);
+router.delete(
+  "/:id",
+  routeHandler(async (req, res) => {
+    const { id } = req.params;
+    const task = await deleteTask(id);
+    if (!task) {
+      throw new NotFoundError(id);
+    } else {
+      return task;
+    }
+  })
+);
 
 module.exports = router;
