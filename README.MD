@@ -73,6 +73,12 @@ module.exports = connectDB;`
 
 ### 10 Set up error handling
 
-- Error class
+- Error function
 - Middleware error function
 - Test error handling
+
+### 10.1 Global error and specific error handling
+
+- Not found error
+- Connection lost
+- ...
