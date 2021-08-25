@@ -17,36 +17,39 @@ router.get(
   "/",
   routeHandler(async (req, res) => {
     const tasks = await getAllTasks();
-    if (!tasks) {
-      throw new NotFoundError();
-    } else {
+    if (tasks) {
       return tasks;
     }
   })
 );
+
 router.get(
   "/:id",
   routeHandler(async (req, res, next) => {
     const { id } = req.params;
     const task = await getTask(id);
     if (!task) {
-      throw new NotFoundError();
+      return new NotFoundError(`No task with id: ${id} found`);
     } else {
       return task;
     }
   })
 );
+
 router.post(
   "/",
   routeHandler(async (req, res) => {
     const task = await createTask(req.body);
     if (!task) {
-      throw new BadRequestError();
+      return new BadRequestError(
+        "Task name must be between 10-30 characters long"
+      );
     } else {
       return task;
     }
   })
 );
+
 router.patch(
   "/:id",
   routeHandler(async (req, res) => {
@@ -54,19 +57,22 @@ router.patch(
     const { name, isCompleted } = req.body;
     const task = await updateTask(id, name, isCompleted);
     if (!task) {
-      throw new BadRequestError();
+      return new BadRequestError(
+        "Task name must be between 10-30 characters long"
+      );
     } else {
       return task;
     }
   })
 );
+
 router.delete(
   "/:id",
   routeHandler(async (req, res) => {
     const { id } = req.params;
     const task = await deleteTask(id);
     if (!task) {
-      throw new NotFoundError(id);
+      return new NotFoundError(`No task with id: ${id} found`);
     } else {
       return task;
     }

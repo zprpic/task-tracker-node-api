@@ -1,5 +1,5 @@
 const notFound = (req, res) => {
-  res.status(404).send("404: Nothing found!");
+  res.status(404).json("404: Not found!");
 };
 
 module.exports = notFound;
