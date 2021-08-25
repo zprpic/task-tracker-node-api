@@ -79,6 +79,6 @@ module.exports = connectDB;`
 
 ### 10.1 Global error and specific error handling
 
-- 404 error for all non-existant paths
-- 404 task not found
-- 400 bad request - PATCH/POST task when not satisfying required task criteria (length of name...)
+- GET 404 errors. Not found.
+- DELETE 404 errors. Not found.
+- POST/PATCH 404 errors not found AND 400 errors bad request (min/maxlength...,)
