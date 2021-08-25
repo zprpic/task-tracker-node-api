@@ -42,7 +42,7 @@ router.post(
     const task = await createTask(req.body);
     if (!task) {
       return new BadRequestError(
-        "Task name must be between 10-30 characters long"
+        "Failed to create new task: Task name must be between 10-30 characters long"
       );
     } else {
       return task;
@@ -56,10 +56,13 @@ router.patch(
     const { id } = req.params;
     const { name, isCompleted } = req.body;
     const task = await updateTask(id, name, isCompleted);
-    if (!task) {
+    if (task.errors) {
       return new BadRequestError(
-        "Task name must be between 10-30 characters long"
+        "Failed to edit current task: Task name must be between 10-30 characters long"
       );
+    }
+    if (task.name === "CastError") {
+      return new NotFoundError(`No task with id: ${id} found`);
     } else {
       return task;
     }

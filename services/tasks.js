@@ -13,8 +13,8 @@ const getTask = async (id) => {
 
 const createTask = async (task) => {
   try {
-    const task = await Task.create(task);
-    return task;
+    const newTask = await Task.create(task);
+    return newTask;
   } catch (error) {
     return undefined;
   }
@@ -41,7 +41,7 @@ const updateTask = async (id, name, isCompleted) => {
     );
     return task;
   } catch (error) {
-    return undefined;
+    return error;
   }
 };
 
