@@ -11,12 +11,19 @@ const {
 
 const routeHandler = require("../../middleware/route-handler");
 
-const { NotFoundError, BadRequestError } = require("../../errors/not-found");
+const { NotFoundError, BadRequestError } = require("../../errors/index");
 
-router.get("/", async (req, res) => {
-  const tasks = await getAllTasks();
-  res.status(200).json({ tasks });
-});
+router.get(
+  "/",
+  routeHandler(async (req, res) => {
+    const tasks = await getAllTasks();
+    if (!tasks) {
+      throw new NotFoundError();
+    } else {
+      return tasks;
+    }
+  })
+);
 router.get(
   "/:id",
   routeHandler(async (req, res, next) => {
