@@ -16,7 +16,7 @@ const createTask = async (task) => {
     const newTask = await Task.create(task);
     return newTask;
   } catch (error) {
-    return undefined;
+    return error;
   }
 };
 
@@ -25,7 +25,7 @@ const deleteTask = async (id) => {
     const task = await Task.deleteOne({ _id: id });
     return task;
   } catch (error) {
-    return undefined;
+    return error;
   }
 };
 

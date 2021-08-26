@@ -84,3 +84,6 @@ module.exports = connectDB;`
 - POST/PATCH 404 errors not found AND 400 errors bad request (min/maxlength...,)
 
 ### 10.2. Create extract error message function
+
+- checkForErrors function
+- if (errors) => prepareErrorMessage()

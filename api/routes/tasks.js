@@ -41,10 +41,10 @@ router.post(
   "/",
   routeHandler(async (req, res) => {
     const task = await createTask(req.body);
-    if (!task) {
-      return new BadRequestError(
-        "Failed to create new task: Task name must be between 10-30 characters long"
-      );
+    console.log(task);
+    const error = checkForErrors(task);
+    if (error) {
+      return error;
     } else {
       return task;
     }
@@ -71,6 +71,7 @@ router.delete(
   routeHandler(async (req, res) => {
     const { id } = req.params;
     const task = await deleteTask(id);
+    const error = checkForErrors(task);
     if (error) {
       return error;
     } else {
