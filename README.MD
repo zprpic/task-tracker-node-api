@@ -82,3 +82,5 @@ module.exports = connectDB;`
 - GET 404 errors. Not found.
 - DELETE 404 errors. Not found.
 - POST/PATCH 404 errors not found AND 400 errors bad request (min/maxlength...,)
+
+### 10.2. Create extract error message function

@@ -7,7 +7,7 @@ const getTask = async (id) => {
     const task = await Task.find({ _id: id });
     return task;
   } catch (error) {
-    return undefined;
+    return error;
   }
 };
 

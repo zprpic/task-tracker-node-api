@@ -1,4 +1,4 @@
-const CustomAPIError = require("../errors/custom-error");
+const { CustomAPIError } = require("../../errors/index");
 
 function routeHandler(handler) {
   return async (req, res, next) => {
