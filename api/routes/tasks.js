@@ -71,8 +71,8 @@ router.delete(
   routeHandler(async (req, res) => {
     const { id } = req.params;
     const task = await deleteTask(id);
-    if (!task) {
-      return new NotFoundError(`No task with id: ${id} found`);
+    if (error) {
+      return error;
     } else {
       return task;
     }
