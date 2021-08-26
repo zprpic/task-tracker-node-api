@@ -9,7 +9,11 @@ const {
   updateTask,
 } = require("../../services/tasks");
 
-const { routeHandler, checkForErrors } = require("../helpers/index");
+const {
+  routeHandler,
+  checkForTasks,
+  checkForErrors,
+} = require("../helpers/index");
 
 const { NotFoundError, BadRequestError } = require("../../errors/index");
 
@@ -17,9 +21,8 @@ router.get(
   "/",
   routeHandler(async (req, res) => {
     const tasks = await getAllTasks();
-    if (tasks) {
-      return tasks;
-    }
+    const tasksChecked = checkForTasks(tasks);
+    return tasksChecked;
   })
 );
 
