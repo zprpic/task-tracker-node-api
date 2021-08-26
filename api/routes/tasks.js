@@ -15,8 +15,6 @@ const {
   checkForErrors,
 } = require("../helpers/index");
 
-const { NotFoundError, BadRequestError } = require("../../errors/index");
-
 router.get(
   "/",
   routeHandler(async (req, res) => {
