@@ -1,8 +1,8 @@
-const getAllTasksService = require("./getAllTasksService");
-const getTaskService = require("./GetTaskService");
-const createTaskService = require("./createTaskService");
-const updateTaskService = require("./updateTaskService");
-const deleteTaskService = require("./deleteTaskService");
+const getAllTasksService = require("./tasks/GetAllTasksService");
+const getTaskService = require("./tasks/GetTaskService");
+const createTaskService = require("./tasks/createTaskService");
+const updateTaskService = require("./tasks/updateTaskService");
+const deleteTaskService = require("./tasks/deleteTaskService");
 
 module.exports = {
   getAllTasksService,
