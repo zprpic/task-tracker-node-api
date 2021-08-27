@@ -92,3 +92,8 @@ module.exports = connectDB;`
 
 - router.route...
 - separated routes
+
+### 12 Refactor services folders
+
+- fragment services into separate service files
+- import all services into index
