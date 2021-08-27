@@ -1,10 +1,10 @@
-const { updateTask } = require("../../services/tasks");
+const { updateTaskService } = require("../../services/index");
 const { checkForErrors } = require("../helpers/index");
 
-const updateTaskRoute = async (req, res) => {
+const updateTask = async (req, res) => {
   const { id } = req.params;
   const { name, isCompleted } = req.body;
-  const task = await updateTask(id, name, isCompleted);
+  const task = await updateTaskService(id, name, isCompleted);
   const error = checkForErrors(task);
   if (error) {
     return error;
@@ -13,4 +13,4 @@ const updateTaskRoute = async (req, res) => {
   }
 };
 
-module.exports = updateTaskRoute;
+module.exports = updateTask;

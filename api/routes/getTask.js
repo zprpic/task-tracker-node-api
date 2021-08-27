@@ -1,9 +1,9 @@
-const { getTask } = require("../../services/tasks");
+const { getTaskService } = require("../../services/index");
 const { checkForErrors } = require("../helpers/index");
 
-const getTaskRoute = async (req, res) => {
+const getTask = async (req, res) => {
   const { id } = req.params;
-  const task = await getTask(id);
+  const task = await getTaskService(id);
   const error = checkForErrors(task);
   if (error) {
     return error;
@@ -12,4 +12,4 @@ const getTaskRoute = async (req, res) => {
   }
 };
 
-module.exports = getTaskRoute;
+module.exports = getTask;

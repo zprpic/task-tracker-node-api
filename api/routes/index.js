@@ -1,13 +1,13 @@
-const getAllTasksRoute = require("./getAllTasksRoute");
-const getTaskRoute = require("./getTaskRoute");
-const createTaskRoute = require("./createTaskRoute");
-const updateTaskRoute = require("./updateTaskRoute");
-const deleteTaskRoute = require("./deleteTaskRoute");
+const getAllTasks = require("./getAllTasks");
+const getTask = require("./getTask");
+const createTask = require("./createTask");
+const updateTask = require("./updateTask");
+const deleteTask = require("./deleteTask");
 
 module.exports = {
-  getAllTasksRoute,
-  getTaskRoute,
-  createTaskRoute,
-  updateTaskRoute,
-  deleteTaskRoute,
+  getAllTasks,
+  getTask,
+  createTask,
+  updateTask,
+  deleteTask,
 };

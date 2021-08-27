@@ -1,9 +1,9 @@
-const { deleteTask } = require("../../services/tasks");
+const { deleteTaskService } = require("../../services/index");
 const { checkForErrors } = require("../helpers/index");
 
-const deleteTaskRoute = async (req, res) => {
+const deleteTask = async (req, res) => {
   const { id } = req.params;
-  const task = await deleteTask(id);
+  const task = await deleteTaskService(id);
   const error = checkForErrors(task);
   if (error) {
     return error;
@@ -12,4 +12,4 @@ const deleteTaskRoute = async (req, res) => {
   }
 };
 
-module.exports = deleteTaskRoute;
+module.exports = deleteTask;
