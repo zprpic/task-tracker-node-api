@@ -1,7 +1,7 @@
 const express = require("express");
 const server = express();
 
-const router = require("../api/routes/tasks");
+const router = require("../api/tasks");
 
 const errorHandler = require("../middleware/error-handler");
 const notFound = require("../middleware/not-found");
