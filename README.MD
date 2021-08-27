@@ -87,3 +87,8 @@ module.exports = connectDB;`
 
 - checkForErrors function
 - if (errors) => prepareErrorMessage()
+
+### 11 Refactor routes file (tasks.js)
+
+- router.route...
+- separated routes
