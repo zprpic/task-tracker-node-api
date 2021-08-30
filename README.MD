@@ -1,4 +1,4 @@
-# TASK TRACKER
+# TASK TRACKER API
 
 ## Technologies used:
 
