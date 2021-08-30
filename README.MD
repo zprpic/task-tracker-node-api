@@ -6,8 +6,6 @@
 
 - Backend: Node, Express
 
-- Frontend: React
-
 - Dependencies: dotenv, mongoose, nodemon, httpstatus
 
 ### 1 Install dependencies
