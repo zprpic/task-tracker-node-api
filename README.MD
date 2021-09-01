@@ -8,7 +8,7 @@
 
 - Frontend: React
 
-- Dependencies: dotenv, mongoose, nodemon, httpstatus
+- Dependencies: dotenv, mongoose, nodemon, cors
 
 ### 1 Install dependencies
 

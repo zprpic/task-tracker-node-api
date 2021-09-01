@@ -1,11 +1,13 @@
 const express = require("express");
 const server = express();
+const cors = require("cors");
 
 const router = require("../api/tasks");
 
 const errorHandler = require("../middleware/error-handler");
 const notFound = require("../middleware/not-found");
 
+server.use(cors());
 server.use(express.json());
 server.use("/tasks", router);
 server.use("*", notFound); //order? wtF?
