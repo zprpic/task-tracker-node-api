@@ -1,4 +1,4 @@
-# TASK TRACKER
+# TASK TRACKER API
 
 ## Technologies used:
 
@@ -6,9 +6,13 @@
 
 - Backend: Node, Express
 
+<<<<<<< HEAD
 - Frontend: React
 
 - Dependencies: dotenv, mongoose, nodemon, cors
+=======
+- Dependencies: dotenv, mongoose, nodemon, httpstatus
+>>>>>>> 600396abeca880ae8d92fe671d0a5608552505c4
 
 ### 1 Install dependencies
 
